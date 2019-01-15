@@ -12,8 +12,6 @@ import storm.kafka.KafkaSpout;
 import storm.kafka.SpoutConfig;
 import storm.kafka.StringScheme;
 import storm.kafka.ZkHosts;
-import storm07.PrinterBolt;
-import storm07.SentenceBolt;
 import utils.ResourceUtils;
 
 import java.text.SimpleDateFormat;
