@@ -10,6 +10,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.FastDateFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import utils.DemoUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class TimeFilterBolt extends BaseBasicBolt {
 
     public static final String strTimeSign = "2019-01-06 00:00:00";
 
-//    private static final Long signTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2018-11-01 00:00:00").getTime();
+
 
     private List<String> words = new ArrayList<String>();
 
@@ -46,7 +47,7 @@ public class TimeFilterBolt extends BaseBasicBolt {
                 Long orderTime = Long.parseLong(message.split(" ")[lastIndex-1]);
                 //两天前订单：无效订单(比如说我们的双十一活动从2018-09-27)
 
-                if(orderTime >= LogUtil.getSignTime(strTimeSign)){
+                if(orderTime >= LogUtil.getSignTime(DemoUtils.getTimeStr())){
                     //做处理
                     logger.info("排除-无效订单：{}",message);
                     //有效订单
